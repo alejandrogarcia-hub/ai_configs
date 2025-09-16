@@ -1,0 +1,48 @@
+---
+description: Security best practices
+globs: 
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.java"
+  - "**/*.rs"
+  - "**/*.ts"
+  - "**/*.js"
+alwaysApply: true
+---
+
+# Security Requirements
+
+## MANDATORY Security Rules
+
+- Validate ALL inputs
+- Parameterized queries only (NO string concatenation)
+- JWT/OAuth2 for auth
+- Rate limiting on all endpoints
+- HTTPS/TLS only
+- Never hardcode secrets
+- Security headers: CSP, HSTS, X-Frame-Options
+
+## Input Validation
+
+```python
+from pydantic import BaseModel, validator
+
+class UserInput(BaseModel):
+    email: str
+    age: int
+    
+    @validator('email')
+    def validate_email(cls, v):
+        # Validation logic
+        return v
+```
+
+## Requirements
+
+- Use HTTPS/TLS only
+- Rate limiting on all endpoints
+- JWT/OAuth2 for auth
+- Security headers: CSP, HSTS, X-Frame-Options
+- Validate ALL inputs
+- Parameterized queries only (NO string concatenation)
+- Never hardcode secrets

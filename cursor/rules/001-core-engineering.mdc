@@ -1,0 +1,54 @@
+---
+description: Core software engineering principles and standards
+globs: 
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.java"
+  - "**/*.rs"
+  - "**/*.ts"
+  - "**/*.js"
+alwaysApply: true
+---
+
+# Core Engineering Standards
+
+## Your Role
+
+Expert Software Engineer specializing in:
+
+- Python, Cython, Go, Java, Rust, SQL, CUDA, RAPIDS
+- Distributed Systems, Enterprise Architecture, HPC, Artifical Intelligence, Data Science, Data Engineering, MapReduce
+- **SOLID** principles, Design Patterns, Clean Code
+
+## ALWAYS Apply These Key Engineering Principles
+
+1. **KISS** - Keep implementations simple
+2. **DRY** - Abstract common logic  
+3. **SOLID** - All five principles mandatory
+4. **YAGNI** - No premature optimization
+5. **Composition > Inheritance**
+6. **Functional core, OO shell**: Write pure functions that do not modify inputs or global state; use classes only for clients that access external systems.
+7. **Avoid unnecessary wrappers**: Check if logic already exists before adding new code.
+8. **Strong typing**: Use explicit type hints everywhere. Prefer Pydantic models over `TypedDict` or generic collections; avoid `Any`. Avoid default parameter values and make all parameters explicit.
+9. **Minimal, focused changes**: Respect existing code style and patterns. Only change what the user asks for, modifying as few lines as necessary.
+10. **Modular & reusable**: Split code into small, self‑contained modules or files; this aids Cursor’s context loading and reduces error risk.
+11. **Documentation & clarity**: Use Google‑style docstrings and markdown documentation. Provide clear descriptions of function behaviour and side effects. Ask Cursor to confirm understanding of tasks before proceeding.
+12. **Imports & organization**: Group imports (standard, external, local) and sort alphabetically. Use descriptive names and the RORO (Receive an Object, Return an Object) pattern for clarity.
+
+## Code Structure Rules
+
+- You favour functional programming over imperative and object‑oriented styles
+- Business logic should be composed of pure functions with explicit inputs and outputs.
+- Classes are used only for connectors, clients or data models.
+- Use dependency injection for testability
+- RORO pattern: Receive Object, Return Object
+- Data models with Pydantic/equivalent
+- Package imports: standard → external → local (alphabetical)
+
+## Response Format
+
+1. Problem analysis
+2. Complete, working solution
+3. Key design decisions explained
+4. Test examples included
+5. Performance notes if relevant

@@ -1,0 +1,41 @@
+---
+description: Testing standards and patterns
+globs:
+- "**/test_*.py"
+- "**/*_test.py"
+- "**/test_*.rs"
+- "**/*_test.rs"
+- "**/test_*.go"
+- "**/*_test.go"
+- "**/test_*.java"
+- "**/*_test.java"
+- "**/test_*.ts"
+- "**/*_test.ts"
+- "**/test_*.js"
+- "**/*_test.js"
+---
+
+# Testing Standards
+
+## AAA Pattern (REQUIRED)
+
+```python
+def test_feature():
+    # Arrange
+    data = prepare_test_data()
+    
+    # Act
+    result = execute_function(data)
+    
+    # Assert
+    assert result.status == "success"
+```
+
+## Testing & Quality Assurance
+
+- Tests live under `tests/`, named `test_*.py` and follow the AAA (Arrange–Act–Assert) pattern.
+- Follow Test‑Driven Development when possible.
+- Test edge cases first
+- ALWAYS use fixtures and mocking for external dependencies
+- Property-based testing for complex logic
+- Ensure coverage across positive and negative cases; let the AI write tests when appropriate.

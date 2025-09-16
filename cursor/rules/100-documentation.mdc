@@ -1,0 +1,42 @@
+---
+description: Documentation standards
+globs: 
+  - "**/*.py"
+  - "**/*.md"
+  - "**/README.md"
+---
+
+# Documentation Standards
+
+## Function Documentation
+
+```python
+def calculate_score(
+    data: dict,
+    model: Model
+) -> float:
+    """Calculate risk score.
+    
+    Args:
+        data: Input data dictionary
+        model: ML model instance
+    
+    Returns:
+        Score between 0-100
+    
+    Raises:
+        ValueError: If data invalid
+    
+    Example:
+        >>> score = calculate_score(data, model)
+    """
+    pass
+```
+
+## Requirements
+
+- Google-style docstrings
+- Type hints mandatory
+- Include examples
+- Document exceptions
+- Keep README current

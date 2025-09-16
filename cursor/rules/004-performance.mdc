@@ -1,0 +1,37 @@
+---
+description: Performance optimization guidelines
+globs: 
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.rs"
+---
+
+# Performance Optimization
+
+## Async-First Design
+
+```python
+async def get_data(id: str):
+    # Concurrent operations
+    user, profile = await asyncio.gather(
+        fetch_user(id),
+        fetch_profile(id)
+    )
+    return combine(user, profile)
+```
+
+## Requirements Optimizations
+
+- Prefer asynchronous, non‑blocking operations for I/O
+- Asynchronous operations: rate-limited http calls, external API integrations
+- Use caching (Redis, in‑memory) for frequently accessed data
+- For concurrency, use primitives appropriate for the language (asyncio, goroutines, threads) and design idempotent operations to handle retries
+- Avoid blocking operations
+- Use **vectorized** operations when possible
+- Measure and optimize hotspots
+- Garbage collection: avoid circular references, fine-tune triggers
+- Connection pooling for databases
+- Redis/cache for frequent data
+- Batch processing for large datasets
+- Lazy loading for heavy resources
+- Index all database queries properly

@@ -1,0 +1,36 @@
+---
+description: Monitoring and observability
+globs: 
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.java"
+  - "**/*.rs"
+  - "**/*.ts"
+  - "**/*.js"
+---
+
+# Monitoring & Observability
+
+- **Structured logging**: Use structured (JSON) logging.
+
+## Structured Logging (JSON)
+
+- DEBUG: Diagnostic details
+- INFO: General events
+- WARNING: Potential issues
+- ERROR: Recoverable errors
+- CRITICAL: System failures
+
+## Metrics to Track
+
+- Latency (p50, p95, p99)
+- Error rate
+- Throughput
+- Resource saturation
+
+## Required Components
+
+- Health check endpoints
+- [OpenTelemetry](https://opentelemetry.io/) tracing
+- Correlation IDs
+- SLO alerts

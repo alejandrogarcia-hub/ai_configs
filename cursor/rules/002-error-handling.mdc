@@ -1,0 +1,35 @@
+---
+description: Error handling and resilience patterns
+globs: 
+  - "**/*.py"
+  - "**/*.go"
+  - "**/*.java"
+  - "**/*.rs"
+alwaysApply: true
+---
+
+# Error Handling & Resilience
+
+- **Explicit errors**: Validate inputs at function start and raise specific exceptions immediately on failure. Do not silently ignore or catch‑all.
+- **Error types**: Raise domain‑specific errors (e.g., `ValueError`, `TypeError`), not generic `Exception`.
+- **Logging**: Log errors with context (e.g., function inputs, correlation IDs) at the ERROR or CRITICAL level before raising.
+- **Resilience patterns**: Use retry with exponential backoff, circuit breakers and fail‑fast patterns where appropriate.
+- **Timeouts**: Set timeouts on ALL external operations.
+- **Structured error responses**: Depending on the programming language, use Pydantic style models for error responses.
+- **NEVER expose internals in errors**
+
+## Guard Clauses Pattern (MANDATORY)
+
+```python
+def process(data: dict) -> Result:
+    # 1. Preconditions first
+    if not data:
+        raise ValueError("Empty data")
+    
+    # 2. Edge cases
+    if data.get("status") == "invalid":
+        return Result(success=False)
+    
+    # 3. Happy path last
+    return Result(success=True)
+```

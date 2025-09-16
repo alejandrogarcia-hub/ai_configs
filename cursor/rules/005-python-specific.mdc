@@ -1,0 +1,38 @@
+---
+description: Python-specific standards
+globs:
+  - "**/*.py"
+alwaysApply: false
+---
+
+# Python Standards
+
+## Type Hints (MANDATORY)
+
+- All functions must have type hints
+- Use Pydantic for data validation
+- Google-style docstrings required
+
+## Logging
+
+```python
+logger.info(
+    "event_name",
+    extra={
+        "user_id": user.id,
+        "timestamp": datetime.utcnow().isoformat(),
+        "correlation_id": request.id
+    }
+)
+```
+
+## Requirements
+
+- Use asyncio for I/O operations
+- Profile before optimizing
+- Use logging levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+- Correlation IDs for distributed systems
+- Log performance metrics: time taken, memory usage, etc.
+- Log errors with stack traces
+- Log security events: auth failures, access attempts
+- Log configuration changes: environment variables, API keys
